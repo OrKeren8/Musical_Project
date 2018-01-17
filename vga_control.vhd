@@ -58,14 +58,42 @@ end loop;
 
 --end of print notes on screen control
 
+--noteAndNumber function
+function noteAndName (zIN : std_logic_vector(6 downto 0);) return std_logic_vector
+begin
+	
+end function_name;
 
+
+
+--end noteAndNumber function
 ----------------------------------------------------------
+
+
+--start color based note
+if z(6 downto 3)= smething then--take the 4 upper bits of z (determine the note (do or re etc....))
+	if z(2 downto 0) = somthing2 then
+		bit1color := notesAll[](	conv_integer(pixel_row(5 downto 0))*16 + conv_integer(pixel_column(3 downto 0))			
+												)												
+			
+	--test
+		y<=not (notesAll[i][j](conv_integer(pixel_row(5 downto 0))*16 + conv_integer(pixel_column(3 downto 0)))	 &  do1(conv_integer(pixel_row(5 downto 0))*16+conv_integer(pixel_column(3 downto 0))) & do1(conv_integer(pixel_row(5 downto 0))*16+conv_integer(pixel_column(3 downto 0))));
+
+	--
+
+			
+		y <= not( bit1color & bit1color & bit1color  )  --concatination of 3 same color bits to find color of cureent pixel (white or black)
+
+
+
+--end color based note
+
 
 case z is
 
 when "0001001"=>
-	y<=not (do1(conv_integer(pixel_row(5 downto 0))*16+conv_integer(pixel_column(3 downto 0)))& do1(conv_integer(pixel_row(5 downto 0))*16+conv_integer(pixel_column(3 downto 0))) & do1(conv_integer(pixel_row(5 downto 0))*16+conv_integer(pixel_column(3 downto 0))));
-	
+	y<=not (do1(conv_integer(pixel_row(5 downto 0))*16 + conv_integer(pixel_column(3 downto 0)))	 &  do1(conv_integer(pixel_row(5 downto 0))*16+conv_integer(pixel_column(3 downto 0))) & do1(conv_integer(pixel_row(5 downto 0))*16+conv_integer(pixel_column(3 downto 0))));
+	--maybe this is how it works: conv_int(pixel_row modulu 64)
 when "0001010"=>
    y<=not (do2(conv_integer(pixel_row(5 downto 0))*16+conv_integer(pixel_column(3 downto 0)))& do2(conv_integer(pixel_row(5 downto 0))*16+conv_integer(pixel_column(3 downto 0))) & do2(conv_integer(pixel_row(5 downto 0))*16+conv_integer(pixel_column(3 downto 0))));
 
