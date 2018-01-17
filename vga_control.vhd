@@ -3,13 +3,24 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 use work.notes.all;
+use work.Melodies.all;
 
 entity vga_control is
 port(pixel_row,pixel_column : in std_logic_vector(9 downto 0);
+	lines    :in std_logic_vector(0 to 1023);
+	do1_1	 	:in std_logic_vector(0 to 1023);
+	do1_2		:in std_logic_vector(0 to 1023);
+	si1_1		:in std_logic_vector(0 to 1023);
+	si1_2		:in std_logic_vector(0 to 1023);
 	sel		:in std_logic_vector(0 to 2);
-	letter   :out std_logic_vector(5 downto 0);
+	shols	 	:in std_logic_vector(0 to 1023);
+	DO2_1    :in std_logic_vector(0 to 1023);
+	DO2_2    :in std_logic_vector(0 to 1023);
+	SI2_1    :in std_logic_vector(0 to 1023);
+	SI2_2    :in std_logic_vector(0 to 1023);
+	keySol   :in std_logic_vector(0 to 1023);
 	
-	----Kituv    :out std_logic;
+	letter   :out std_logic_vector(5 downto 0);
 	 Y      :out std_logic_vector(2 downto 0));
 end entity;
 
@@ -42,23 +53,449 @@ if sel="000" then
 		music<=keta7;
 end if;
 
---print notes on screen control by row and column:
+if pixel_row<64 then
+	if pixel_column<16  then
+		z:= music (0);
+	elsif pixel_column>15 and pixel_column<32  then
+		z:= music (1);	
+	elsif pixel_column>31 and pixel_column<48  then
+		z:= music (2);	
+	elsif pixel_column>47 and pixel_column<64  then
+		z:= music (3);	
+	elsif pixel_column>63 and pixel_column<80  then
+		z:= music (4);
+    elsif pixel_column>79 and pixel_column<96  then
+		z:= music (5);
+    elsif pixel_column>95 and pixel_column<112  then
+		z:= music (6);
+    elsif pixel_column>111 and pixel_column<128  then
+		z:= music (7);
+    elsif pixel_column>127 and pixel_column<144  then
+		z:= music (8);
+    elsif pixel_column>143 and pixel_column<160  then
+		z:= music (9);
+    elsif pixel_column>159 and pixel_column<176  then
+		z:= music (10);
+    elsif pixel_column>175 and pixel_column<192  then
+		z:= music (11);
+    elsif pixel_column>191 and pixel_column<208  then
+		z:= music (12);
+    elsif pixel_column>207 and pixel_column<224  then
+		z:= music (13);
+    elsif pixel_column>223 and pixel_column<240 then
+		z:= music (14);
+    elsif pixel_column>239 and pixel_column<256  then
+		z:= music (15);
+    elsif pixel_column>255 and pixel_column<272  then
+		z:= music (16);
+    elsif pixel_column>271 and pixel_column<288  then
+		z:= music (17);
+    elsif pixel_column>287 and pixel_column<304  then
+		z:= music (18);
+    elsif pixel_column>303 and pixel_column<320  then
+		z:= music (19);
+    elsif pixel_column>319 and pixel_column<336  then
+		z:= music (20);
+    elsif pixel_column>335 and pixel_column<352  then
+		z:= music (21);
+    elsif pixel_column>351 and pixel_column<368  then
+		z:= music (22);
+    elsif pixel_column>367 and pixel_column<384  then
+		z:= music (23);
+    elsif pixel_column>383 and pixel_column<400  then
+		z:= music (24);
+    elsif pixel_column>399 and pixel_column<416  then
+		z:= music (25);
+    elsif pixel_column>415 and pixel_column<432 then
+		z:= music (26);
+    elsif pixel_column>431 and pixel_column<448  then
+		z:= music (27);
+    elsif pixel_column>447 and pixel_column<464  then
+		z:= music (28);
+    elsif pixel_column>463 and pixel_column<480  then
+		z:= music (29);
+    elsif pixel_column>479 and pixel_column<496  then
+		z:= music (30);
+    elsif pixel_column>495 and pixel_column<512  then
+		z:= music (31);
+    elsif pixel_column>511 and pixel_column<528  then
+		z:= music (32);
+    elsif pixel_column>527 and pixel_column<544  then
+		z:= music (33);
+    elsif pixel_column>543 and pixel_column<560  then
+		z:= music (34);
+    elsif pixel_column>559 and pixel_column<576  then
+		z:= music (35);
+	 elsif pixel_column>575 and pixel_column<592  then
+		z:= music (36);	
+	 elsif pixel_column>591 and pixel_column<608  then
+		z:= music (37);	
+	 elsif pixel_column>607 and pixel_column<624  then
+		z:= music (38);
+	 elsif pixel_column>623 and pixel_column<640  then
+		z:= music (39);	
 
-for r in 0 to 4 loop			--r=row, there are 5 rows.
-	for c in 0 to 39 loop	--c=column, there are 40 columns.
-		if pixel_row >= (64*r) and pixel_row < (64*(r+1)) then 				--check row
-			if pixel_column >= (16*c) and pixel_column < (16*(c+1)) then	--check column
-				z:= music (r*40+c); 	--print music of current row and column
-			else 
-				y<="111";
-			end if;
-		end if;	
-	end loop;
-end loop;
 
---end of print notes on screen control
+	else y<="111";   
 
+	end if;
 
+--------------------------------------------------
+
+elsif pixel_row>63 and pixel_row<128 then
+		if pixel_column<16  then
+		z:= music (40);
+	elsif pixel_column>15 and pixel_column<32  then
+		z:= music (41);	
+	elsif pixel_column>31 and pixel_column<48  then
+		z:= music (42);	
+	elsif pixel_column>47 and pixel_column<64  then
+		z:= music (43);	
+	elsif pixel_column>63 and pixel_column<80  then
+		z:= music (44);
+    elsif pixel_column>79 and pixel_column<96  then
+		z:= music (45);
+    elsif pixel_column>95 and pixel_column<112  then
+		z:= music (46);
+    elsif pixel_column>111 and pixel_column<128  then
+		z:= music (47);
+    elsif pixel_column>127 and pixel_column<144  then
+		z:= music (48);
+    elsif pixel_column>143 and pixel_column<160  then
+		z:= music (49);
+    elsif pixel_column>159 and pixel_column<176  then
+		z:= music (50);
+    elsif pixel_column>175 and pixel_column<192  then
+		z:= music (51);
+    elsif pixel_column>191 and pixel_column<208  then
+		z:= music (52);
+    elsif pixel_column>207 and pixel_column<224  then
+		z:= music (53);
+    elsif pixel_column>223 and pixel_column<240 then
+		z:= music (54);
+    elsif pixel_column>239 and pixel_column<256  then
+		z:= music (55);
+    elsif pixel_column>255 and pixel_column<272  then
+		z:= music (56);
+    elsif pixel_column>271 and pixel_column<288  then
+		z:= music (57);
+    elsif pixel_column>287 and pixel_column<304  then
+		z:= music (58);
+    elsif pixel_column>303 and pixel_column<320  then
+		z:= music (59);
+    elsif pixel_column>319 and pixel_column<336  then
+		z:= music (60);
+    elsif pixel_column>335 and pixel_column<352  then
+		z:= music (61);
+    elsif pixel_column>351 and pixel_column<368  then
+		z:= music (62);
+    elsif pixel_column>367 and pixel_column<384  then
+		z:= music (63);
+    elsif pixel_column>383 and pixel_column<400  then
+		z:= music (64);
+    elsif pixel_column>399 and pixel_column<416  then
+		z:= music (65);
+    elsif pixel_column>415 and pixel_column<432 then
+		z:= music (66);
+    elsif pixel_column>431 and pixel_column<448  then
+		z:= music (67);
+    elsif pixel_column>447 and pixel_column<464  then
+		z:= music (68);
+    elsif pixel_column>463 and pixel_column<480  then
+		z:= music (69);
+    elsif pixel_column>479 and pixel_column<496  then
+		z:= music (70);
+    elsif pixel_column>495 and pixel_column<512  then
+		z:= music (71);
+    elsif pixel_column>511 and pixel_column<528  then
+		z:= music (72);
+    elsif pixel_column>527 and pixel_column<544  then
+		z:= music (73);
+    elsif pixel_column>543 and pixel_column<560  then
+		z:= music (74);
+    elsif pixel_column>559 and pixel_column<576  then
+		z:= music (75);
+	 elsif pixel_column>575 and pixel_column<592  then
+		z:= music (76);	
+	 elsif pixel_column>591 and pixel_column<608  then
+		z:= music (77);	
+	 elsif pixel_column>607 and pixel_column<624  then
+		z:= music (78);
+	 elsif pixel_column>623 and pixel_column<640  then
+		z:= music (79);	
+
+    
+
+	else y<="111";   
+
+	end if;
+	
+-------------------------------------------------------
+
+elsif pixel_row>127 and pixel_row<192 then
+  	if pixel_column<16  then
+		z:= music (80);
+	elsif pixel_column>15 and pixel_column<32  then
+		z:= music (81);	
+	elsif pixel_column>31 and pixel_column<48  then
+		z:= music (82);	
+	elsif pixel_column>47 and pixel_column<64  then
+		z:= music (83);	
+	elsif pixel_column>63 and pixel_column<80  then
+		z:= music (84);
+    elsif pixel_column>79 and pixel_column<96  then
+		z:= music (85);
+    elsif pixel_column>95 and pixel_column<112  then
+		z:= music (86);
+    elsif pixel_column>111 and pixel_column<128  then
+		z:= music (87);
+    elsif pixel_column>127 and pixel_column<144  then
+		z:= music (88);
+    elsif pixel_column>143 and pixel_column<160  then
+		z:= music (89);
+    elsif pixel_column>159 and pixel_column<176  then
+		z:= music (90);
+    elsif pixel_column>175 and pixel_column<192  then
+		z:= music (91);
+    elsif pixel_column>191 and pixel_column<208  then
+		z:= music (92);
+    elsif pixel_column>207 and pixel_column<224  then
+		z:= music (93);
+    elsif pixel_column>223 and pixel_column<240 then
+		z:= music (94);
+    elsif pixel_column>239 and pixel_column<256  then
+		z:= music (95);
+    elsif pixel_column>255 and pixel_column<272  then
+		z:= music (96);
+    elsif pixel_column>271 and pixel_column<288  then
+		z:= music (97);
+    elsif pixel_column>287 and pixel_column<304  then
+		z:= music (98);
+    elsif pixel_column>303 and pixel_column<320  then
+		z:= music (99);
+    elsif pixel_column>319 and pixel_column<336  then
+		z:= music (100);
+    elsif pixel_column>335 and pixel_column<352  then
+		z:= music (101);
+    elsif pixel_column>351 and pixel_column<368  then
+		z:= music (102);
+    elsif pixel_column>367 and pixel_column<384  then
+		z:= music (103);
+    elsif pixel_column>383 and pixel_column<400  then
+		z:= music (104);
+    elsif pixel_column>399 and pixel_column<416  then
+		z:= music (105);
+    elsif pixel_column>415 and pixel_column<432 then
+		z:= music (106);
+    elsif pixel_column>431 and pixel_column<448  then
+		z:= music (107);
+    elsif pixel_column>447 and pixel_column<464  then
+		z:= music (108);
+    elsif pixel_column>463 and pixel_column<480  then
+		z:= music (109);
+    elsif pixel_column>479 and pixel_column<496  then
+		z:= music (110);
+    elsif pixel_column>495 and pixel_column<512  then
+		z:= music (111);
+    elsif pixel_column>511 and pixel_column<528  then
+		z:= music (112);
+    elsif pixel_column>527 and pixel_column<544  then
+		z:= music (113);
+    elsif pixel_column>543 and pixel_column<560  then
+		z:= music (114);
+    elsif pixel_column>559 and pixel_column<576  then
+		z:= music (115);
+	 elsif pixel_column>575 and pixel_column<592  then
+		z:= music (116);	
+	 elsif pixel_column>591 and pixel_column<608  then
+		z:= music (117);	
+	 elsif pixel_column>607 and pixel_column<624  then
+		z:= music (118);
+	 elsif pixel_column>623 and pixel_column<640  then
+		z:= music (119);	
+
+    
+
+	else y<="111";   
+
+	end if;
+-------------------------------------------------
+
+elsif pixel_row>191 and pixel_row<256 then
+		if pixel_column<16  then
+		z:= music (120);
+	elsif pixel_column>15 and pixel_column<32  then
+		z:= music (121);	
+	elsif pixel_column>31 and pixel_column<48  then
+		z:= music (122);	
+	elsif pixel_column>47 and pixel_column<64  then
+		z:= music (123);	
+	elsif pixel_column>63 and pixel_column<80  then
+		z:= music (124);
+    elsif pixel_column>79 and pixel_column<96  then
+		z:= music (125);
+    elsif pixel_column>95 and pixel_column<112  then
+		z:= music (126);
+    elsif pixel_column>111 and pixel_column<128  then
+		z:= music (127);
+    elsif pixel_column>127 and pixel_column<144  then
+		z:= music (128);
+    elsif pixel_column>143 and pixel_column<160  then
+		z:= music (129);
+    elsif pixel_column>159 and pixel_column<176  then
+		z:= music (130);
+    elsif pixel_column>175 and pixel_column<192  then
+		z:= music (131);
+    elsif pixel_column>191 and pixel_column<208  then
+		z:= music (132);
+    elsif pixel_column>207 and pixel_column<224  then
+		z:= music (133);
+    elsif pixel_column>223 and pixel_column<240 then
+		z:= music (134);
+    elsif pixel_column>239 and pixel_column<256  then
+		z:= music (135);
+    elsif pixel_column>255 and pixel_column<272  then
+		z:= music (136);
+    elsif pixel_column>271 and pixel_column<288  then
+		z:= music (137);
+    elsif pixel_column>287 and pixel_column<304  then
+		z:= music (138);
+    elsif pixel_column>303 and pixel_column<320  then
+		z:= music (139);
+    elsif pixel_column>319 and pixel_column<336  then
+		z:= music (140);
+    elsif pixel_column>335 and pixel_column<352  then
+		z:= music (141);
+    elsif pixel_column>351 and pixel_column<368  then
+		z:= music (142);
+    elsif pixel_column>367 and pixel_column<384  then
+		z:= music (143);
+    elsif pixel_column>383 and pixel_column<400  then
+		z:= music (144);
+    elsif pixel_column>399 and pixel_column<416  then
+		z:= music (145);
+    elsif pixel_column>415 and pixel_column<432 then
+		z:= music (146);
+    elsif pixel_column>431 and pixel_column<448  then
+		z:= music (147);
+    elsif pixel_column>447 and pixel_column<464  then
+		z:= music (148);
+    elsif pixel_column>463 and pixel_column<480  then
+		z:= music (149);
+    elsif pixel_column>479 and pixel_column<496  then
+		z:= music (150);
+    elsif pixel_column>495 and pixel_column<512  then
+		z:= music (151);
+    elsif pixel_column>511 and pixel_column<528  then
+		z:= music (152);
+    elsif pixel_column>527 and pixel_column<544  then
+		z:= music (153);
+    elsif pixel_column>543 and pixel_column<560  then
+		z:= music (154);
+    elsif pixel_column>559 and pixel_column<576  then
+		z:= music (155);
+	 elsif pixel_column>575 and pixel_column<592  then
+		z:= music (156);	
+	 elsif pixel_column>591 and pixel_column<608  then
+		z:= music (157);	
+	 elsif pixel_column>607 and pixel_column<624  then
+		z:= music (158);
+	 elsif pixel_column>623 and pixel_column<640  then
+		z:= music (159);	
+
+    
+
+	else y<="111";   
+
+	end if;
+	elsif pixel_row>256 and pixel_row<312 then
+		if pixel_column<16  then
+		z:= music (160);
+	elsif pixel_column>15 and pixel_column<32  then
+		z:= music (161);	
+	elsif pixel_column>31 and pixel_column<48  then
+		z:= music (162);	
+	elsif pixel_column>47 and pixel_column<64  then
+		z:= music (163);	
+	elsif pixel_column>63 and pixel_column<80  then
+		z:= music (164);
+    elsif pixel_column>79 and pixel_column<96  then
+		z:= music (165);
+    elsif pixel_column>95 and pixel_column<112  then
+		z:= music (166);
+    elsif pixel_column>111 and pixel_column<128  then
+		z:= music (167);
+    elsif pixel_column>127 and pixel_column<144  then
+		z:= music (168);
+    elsif pixel_column>143 and pixel_column<160  then
+		z:= music (169);
+    elsif pixel_column>159 and pixel_column<176  then
+		z:= music (170);
+    elsif pixel_column>175 and pixel_column<192  then
+		z:= music (171);
+    elsif pixel_column>191 and pixel_column<208  then
+		z:= music (172);
+    elsif pixel_column>207 and pixel_column<224  then
+		z:= music (173);
+    elsif pixel_column>223 and pixel_column<240 then
+		z:= music (174);
+    elsif pixel_column>239 and pixel_column<256  then
+		z:= music (175);
+    elsif pixel_column>255 and pixel_column<272  then
+		z:= music (176);
+    elsif pixel_column>271 and pixel_column<288  then
+		z:= music (177);
+    elsif pixel_column>287 and pixel_column<304  then
+		z:= music (178);
+    elsif pixel_column>303 and pixel_column<320  then
+		z:= music (179);
+    elsif pixel_column>319 and pixel_column<336  then
+		z:= music (180);
+    elsif pixel_column>335 and pixel_column<352  then
+		z:= music (181);
+    elsif pixel_column>351 and pixel_column<368  then
+		z:= music (182);
+    elsif pixel_column>367 and pixel_column<384  then
+		z:= music (183);
+    elsif pixel_column>383 and pixel_column<400  then
+		z:= music (184);
+    elsif pixel_column>399 and pixel_column<416  then
+		z:= music (185);
+    elsif pixel_column>415 and pixel_column<432 then
+		z:= music (186);
+    elsif pixel_column>431 and pixel_column<448  then
+		z:= music (187);
+    elsif pixel_column>447 and pixel_column<464  then
+		z:= music (188);
+    elsif pixel_column>463 and pixel_column<480  then
+		z:= music (189);
+    elsif pixel_column>479 and pixel_column<496  then
+		z:= music (190);
+    elsif pixel_column>495 and pixel_column<512  then
+		z:= music (191);
+    elsif pixel_column>511 and pixel_column<528  then
+		z:= music (192);
+    elsif pixel_column>527 and pixel_column<544  then
+		z:= music (193);
+    elsif pixel_column>543 and pixel_column<560  then
+		z:= music (194);
+    elsif pixel_column>559 and pixel_column<576  then
+		z:= music (195);
+	 elsif pixel_column>575 and pixel_column<592  then
+		z:= music (196);	
+	 elsif pixel_column>591 and pixel_column<608  then
+		z:= music (197);	
+	 elsif pixel_column>607 and pixel_column<624  then
+		z:= music (198);
+	 elsif pixel_column>623 and pixel_column<640  then
+		z:= music (199);	
+
+    
+
+	else y<="111";   
+
+	end if;
+	end if;
 ----------------------------------------------------------
 
 case z is
@@ -228,156 +665,6 @@ when others=>
 end case;
 
 end process;
-
-
--------Little Yonatan----------
-
-
-	keta0(7)<="1111111";
-	keta0(8)<="1111110";
-	keta0(9)<="1111111";
-
-	keta0(10)<="0110001";
-	keta0(11)<="0011001";
-	keta0(12)<="0011010";
-	keta0(13)<="1111111";
-
-	keta0(14)<="0100001";
-	keta0(15)<="0010001";
-	keta0(16)<="0010010";
-	keta0(17)<="1111111";
-
-	keta0(18)<="0001001";
-	keta0(19)<="0010001";
-	keta0(20)<="0011001";
-	keta0(21)<="0100001";
-	keta0(22)<="0101001";
-	keta0(23)<="0101001";
-	keta0(24)<="0101010";
-	keta0(25)<="1111111";
-
-	keta0(26)<="0110001";
-	keta0(27)<="0011001";
-	keta0(28)<="0011010";
-
-	keta0(29)<="1111111";
-	keta0(30)<="1111111";
-	keta0(31)<="1111111";
-	keta0(32)<="1111111";
---	keta0(33)<="1111111";
---	keta0(34)<="1111111";
---
---	keta0(35)<="1111111";
---	keta0(36)<="1111111";
---	keta0(30)<="1111111";
---	keta0(31)<="1111111";
---	keta0(32)<="1111111";
---	keta0(33)<="1111111";
---	keta0(34)<="1111111";
---	keta0(35)<="1111111";
---	keta0(36)<="1111111";
---
---	keta0(37)<="0000000";
---	keta0(38)<="0000000";
---	keta0(39)<="0000000";
-
-	----????2--
-	keta0(47)<="1111111";
-	keta0(48)<="1111110";
-	keta0(49)<="1111111";
-
-	keta0(50)<="0100001";
-	keta0(51)<="0010001";
-	keta0(52)<="0010010";
-	keta0(53)<="1111111";
-
-	keta0(54)<="0001001";
-	keta0(55)<="0011001";
-	keta0(56)<="0101001";
-	keta0(57)<="0101001";
-	keta0(58)<="0001101";
-	keta0(59)<="1111111";
-	keta0(60)<="1111111";
-	keta0(61)<="1111111";
-
-	keta0(62)<="0010001";
-	keta0(63)<="0010001";
-	keta0(64)<="0010001";
-	keta0(65)<="0010001";
-	keta0(66)<="0010001";
-	keta0(67)<="0011001";
-	keta0(68)<="0100010";
-
-	keta0(69)<="1111111";
-	keta0(70)<="1111111";
-	keta0(71)<="1111111";
-	keta0(72)<="1111111";
---	keta0(73)<="1111111";
---	keta0(73)<="1111111";
---
---	keta0(74)<="1111111";
---	keta0(75)<="1111111";
---	keta0(70)<="1111111";
---	keta0(71)<="1111111";
---	keta0(72)<="1111111";
---	keta0(73)<="1111111";
---	keta0(74)<="1111111";
---	keta0(75)<="1111111";
---	keta0(76)<="1111111";
---
---	keta0(77)<="0000000";
---	keta0(78)<="0000000";
---	keta0(79)<="0000000";
-
-	--????3------
-
-	keta0(87)<="1111111";
-	keta0(88)<="1111110";
-	keta0(89)<="1111111";
-
-	keta0(90)<="0011001";
-	keta0(91)<="0011001";
-	keta0(92)<="0011001";
-	keta0(93)<="0011001";
-	keta0(94)<="0011001";
-	keta0(95)<="0100001";
-	keta0(96)<="0101010";
-	keta0(97)<="1111111";
-
-	keta0(98)<="0110001";
-	keta0(99)<="0011001";
-	keta0(100)<="0011010";
-	keta0(101)<="1111111";
-
-	keta0(102)<="0100001";
-	keta0(103)<="0010001";
-	keta0(104)<="0010010";
-	keta0(105)<="1111111";
-
-	keta0(106)<="0001001";
-	keta0(107)<="0011001";
-	keta0(108)<="0101001";
-	keta0(109)<="0101001";
-	keta0(110)<="0001101";
-
-	keta0(111)<="1111111";
-	keta0(112)<="1111111";
---	keta0(106)<="1111111";
---	keta0(107)<="1111111";
---
---	keta0(108)<="1111111";
---	keta0(109)<="1111111";
---	keta0(110)<="1111111";
---	keta0(111)<="1111111";
---	keta0(112)<="1111111";
---	keta0(113)<="1111111";
---	keta0(114)<="1111111";
---	keta0(115)<="1111111";
---	keta0(116)<="1111111";
---	keta0(117)<="0000000";
---	keta0(118)<="0000000";
---	keta0(119)<="0000000";
-
 
 -----"Uncle's Moshe farm"---
 
@@ -860,24 +1147,7 @@ end process;
 	keta4(30)<="1111111";
 	keta4(31)<="1111111";
 	keta4(32)<="1111111";
---	keta0(33)<="1111111";
---	keta0(34)<="1111111";
---
---	keta0(35)<="1111111";
---	keta0(36)<="1111111";
---	keta0(30)<="1111111";
---	keta0(31)<="1111111";
---	keta0(32)<="1111111";
---	keta0(33)<="1111111";
---	keta0(34)<="1111111";
---	keta0(35)<="1111111";
---	keta0(36)<="1111111";
---
---	keta0(37)<="0000000";
---	keta0(38)<="0000000";
---	keta0(39)<="0000000";
 
-   
 	----shura2------
 	keta4(47)<="1111111";
 	keta4(48)<="1111110";
@@ -911,22 +1181,7 @@ end process;
 	keta4(70)<="1111111";
 	keta4(71)<="1111111";
 	keta4(72)<="1111111";
---	keta0(73)<="1111111";
---	keta0(73)<="1111111";
---
 --	keta4(74)<="1111111";
---	keta0(75)<="1111111";
---	keta0(70)<="1111111";
---	keta0(71)<="1111111";
---	keta0(72)<="1111111";
---	keta0(73)<="1111111";
---	keta0(74)<="1111111";
---	keta0(75)<="1111111";
---	keta0(76)<="1111111";
---
---	keta0(77)<="0000000";
---	keta0(78)<="0000000";
---	keta0(79)<="0000000";
 
 	--shura3------
 
@@ -963,21 +1218,6 @@ end process;
 	keta4(111)<="1111111";
 	keta4(112)<="1111111";
 
---	keta0(106)<="1111111";
---	keta0(107)<="1111111";
---	keta0(108)<="1111111";
---	keta0(109)<="1111111";
---	keta0(110)<="1111111";
---	keta0(111)<="1111111";
---	keta0(112)<="1111111";
---	keta0(113)<="1111111";
---	keta0(114)<="1111111";
---	keta0(115)<="1111111";
---	keta0(116)<="1111111";
---	keta0(117)<="0000000";
---	keta0(118)<="0000000";
---	keta0(119)<="0000000";
---
 ------shura4--------------
 --
 	keta4(127)<="1111111";
