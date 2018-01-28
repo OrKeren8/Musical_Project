@@ -59,8 +59,8 @@ end loop;
 
 --end of print notes on screen control
 
-bit1color := notesALL(   conv_integer(z)    )(conv_integer(pixel_row(5 downto 0))*16 + conv_integer(pixel_column(3 downto 0)));	
-	y <= not(bit1color & bit1color & bit1color);
+bit1color := not (notesALL(   conv_integer(z)    )(conv_integer(pixel_row(5 downto 0))*16 + conv_integer(pixel_column(3 downto 0))));	
+	y <= (bit1color & bit1color & bit1color);
 
 end process;
 
