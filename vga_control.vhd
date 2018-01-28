@@ -7,19 +7,7 @@ use work.Melodies.all;
 
 entity vga_control is
 port(pixel_row,pixel_column : in std_logic_vector(9 downto 0);
-	lines    :in std_logic_vector(0 to 1023);
-	do1_1	 	:in std_logic_vector(0 to 1023);
-	do1_2		:in std_logic_vector(0 to 1023);
-	si1_1		:in std_logic_vector(0 to 1023);
-	si1_2		:in std_logic_vector(0 to 1023);
 	sel		:in std_logic_vector(0 to 2);
-	shols	 	:in std_logic_vector(0 to 1023);
-	DO2_1    :in std_logic_vector(0 to 1023);
-	DO2_2    :in std_logic_vector(0 to 1023);
-	SI2_1    :in std_logic_vector(0 to 1023);
-	SI2_2    :in std_logic_vector(0 to 1023);
-	keySol   :in std_logic_vector(0 to 1023);
-	
 	letter   :out std_logic_vector(5 downto 0);
 	 Y      :out std_logic_vector(2 downto 0));
 end entity;
