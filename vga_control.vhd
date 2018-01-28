@@ -7,27 +7,16 @@ use work.Melodies.all;
 
 entity vga_control is
 port(pixel_row,pixel_column : in std_logic_vector(9 downto 0);
-	lines    :in std_logic_vector(0 to 1023);
-	do1_1	 	:in std_logic_vector(0 to 1023);
-	do1_2		:in std_logic_vector(0 to 1023);
-	si1_1		:in std_logic_vector(0 to 1023);
-	si1_2		:in std_logic_vector(0 to 1023);
 	sel		:in std_logic_vector(0 to 2);
-	shols	 	:in std_logic_vector(0 to 1023);
-	DO2_1    :in std_logic_vector(0 to 1023);
-	DO2_2    :in std_logic_vector(0 to 1023);
-	SI2_1    :in std_logic_vector(0 to 1023);
-	SI2_2    :in std_logic_vector(0 to 1023);
-	keySol   :in std_logic_vector(0 to 1023);
-	
 	letter   :out std_logic_vector(5 downto 0);
+	
+	----Kituv    :out std_logic;
 	 Y      :out std_logic_vector(2 downto 0));
 end entity;
 
 architecture arch_vga_control of vga_control is
 
-type matrix is array (255 downto 0) of std_logic_vector (6 downto 0);
-signal music,keta0,keta1,keta2,keta3,keta4,keta5,keta6,keta7: matrix;
+signal music : matrix;
 begin
 process (pixel_row,pixel_column)
 variable z: std_logic_vector (6 downto 0);
@@ -54,7 +43,6 @@ if sel="000" then
 		music<=keta7;
 end if;
 
-
 --print notes on screen control by row and column:
 
 for r in 0 to 4 loop			--r=row, there are 5 rows.
@@ -76,54 +64,6 @@ bit1color := not (notesALL(   conv_integer(z)    )(conv_integer(pixel_row(5 down
 
 end process;
 
-------------------------------------------More Song-------------------------------------------------------------------------
-
-
-
-
------------------------  Tafrit (Save+Open) ---------------------
---
-------1.open
---letter<= conv_std_logic_vector(49,6) 
---			when pixel_row>=64 and pixel_row<=79 and
---				 pixel_column>=32 and pixel_column<=47 else
---         conv_std_logic_vector(46,6)
---			when pixel_row>=64 and pixel_row<=79 and
---                 pixel_column>=48 and pixel_column<=63 else
---         conv_std_logic_vector(15,6)
---			when pixel_row>=64 and pixel_row<=79 and
---                 pixel_column>=64 and pixel_column<=79 else
---		 conv_std_logic_vector(16,6)
---			when pixel_row>=64 and pixel_row<=79 and
---                 pixel_column>=80 and pixel_column=<95 else
---		 conv_std_logic_vector(5,6) 
---			when pixel_row>=64 and pixel_row<=79 and
---				 pixel_column>=96 and pixel_column<=111 else
---         conv_std_logic_vector(14,6)
---			when pixel_row>=64 and pixel_row<=79 and
---                 pixel_column>=112 and pixel_column<=127 else
---------2.save
---		conv_std_logic_vector(50,6) 
---			when pixel_row>=96 and pixel_row<=111 and
---				 pixel_column>=32 and pixel_column<=47 else
---         conv_std_logic_vector(46,6)
---			when pixel_row>=96 and pixel_row<=111 and
---                 pixel_column>=48 and pixel_column<=63 else
---         conv_std_logic_vector(19,6)
---			when pixel_row>=96 and pixel_row<=111 and
---                 pixel_column>=64 and pixel_column<=79 else
---		 conv_std_logic_vector(1,6)
---			when pixel_row>=96 and pixel_row<=111 and
---                 pixel_column>=80 and pixel_column<=95 else
---		 conv_std_logic_vector(22,6) 
---			when pixel_row>=96 and pixel_row<=111 and
---				 pixel_column>=96 and pixel_column<=111 else
---         conv_std_logic_vector(5,6)
---			when pixel_row>=96 and pixel_row<=111 and
---                 pixel_column>=112 and pixel_column<=127 else
---          "100000";
-
- ------------- Tafrit Music ( Litttle Yonatan .....)------
 
 ----1.Little Yonatan
 
