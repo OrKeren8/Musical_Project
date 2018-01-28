@@ -2966,6 +2966,22 @@ constant keySol :std_logic_vector(0 to 1023) :="00000000001111000000000011111110
 --0000011110000000
 
 
+
+type namesMatrix is array (127 downto 0) of std_logic_vector (0 to 1023);
+constant notesALL : namesMatrix :=
+				(9=>do1, 10=>do2, 11=>do3, 12=>do4, 13=>do5, 
+				17=>re1, 18=>re2, 19=>re3, 20=>re4, 21=>re5,
+				25=>mi1, 26=>mi2, 27=>mi3, 28=>mi4, 29=>mi5,
+				33=>fa1, 34=>fa2, 35=>fa3, 36=>fa4, 37=>fa5,
+				41=>sol1, 42=>sol2, 43=>sol3, 44=>sol4, 45=>sol5,
+				49=>la1, 50=>la2, 51=>la3, 52=>la4, 53=>la5,
+				57=>si1, 58=>si2, 59=>si3, 60=>si4, 61=>si5,
+				65=>do1_1, 66=>do1_2, 14=>do2_1,	15=>do2_2,
+				105=>si1_1, 106=> si1_2, 110=>si2_1, 111=>si2_2,
+				127=>lines, 0=>shols, 126=>keySol, 
+				others=>shols														);
+
+
 end package;
 
 
