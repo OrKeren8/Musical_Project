@@ -1,0 +1,35 @@
+what we got:
+1.display notes on screen via altera
+2.read music xml file and find notes to txt file
+3.mechanical arm that writes numbers
+
+
+what we want:
+*prepared music sheets (in xml):
+	*that we can import
+	*display the music notes
+	*play music via arduino
+
+
+
+
+
+
+acrcloud imfo:
+	music
+	project
+	atlasyonatan@gmail.com
+	pass: musicxmusic333
+
+
+
+acrmusicproject info:
+
+	host:
+	identify-eu-west-1.acrcloud.com	
+
+	Access Key:
+	8fe6d38a0f3221465452051ff9d00af2
+
+	Access Secret:
+	8gG1JEfrPUUgluY5RBrYi5dBdzVbIBkelIBFrdQj
