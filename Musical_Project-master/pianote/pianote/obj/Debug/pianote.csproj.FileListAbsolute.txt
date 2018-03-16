@@ -1,0 +1,10 @@
+C:\Users\Or Keren\Desktop\pianote\pianote\bin\Debug\pianote.exe.config
+C:\Users\Or Keren\Desktop\pianote\pianote\bin\Debug\pianote.exe
+C:\Users\Or Keren\Desktop\pianote\pianote\bin\Debug\pianote.pdb
+C:\Users\Or Keren\Desktop\pianote\pianote\obj\Debug\pianote.csprojResolveAssemblyReference.cache
+C:\Users\Or Keren\Desktop\pianote\pianote\obj\Debug\pianote.Form1.resources
+C:\Users\Or Keren\Desktop\pianote\pianote\obj\Debug\pianote.Properties.Resources.resources
+C:\Users\Or Keren\Desktop\pianote\pianote\obj\Debug\pianote.csproj.GenerateResource.Cache
+C:\Users\Or Keren\Desktop\pianote\pianote\obj\Debug\pianote.csproj.CoreCompileInputs.cache
+C:\Users\Or Keren\Desktop\pianote\pianote\obj\Debug\pianote.exe
+C:\Users\Or Keren\Desktop\pianote\pianote\obj\Debug\pianote.pdb
