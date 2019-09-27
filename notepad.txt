@@ -1,0 +1,77 @@
+what we got:
+1.display notes on screen via altera
+2.read music xml file and find notes to txt file
+3.mechanical arm that writes numbers
+4.recognize known songs by acrcloud
+
+
+what we want:
+
+*virtual piano for selfplayed music
+	*pc send arduino notes one after the other (until hit max #notes or pressed finish button)
+	*arduino sounds the notes as it recieves them (altera doesn't know)
+		*sounds on speaker
+		*sounds in mechanical xylophone
+	*after the user finished playing (note limit or stop button required):the music is "remembered" on arduino AND on altera
+		*altera displayes the full song recorded on display
+		*arduino replayes the song recieved.
+		*maybe: altera colors(indicates) the current note played (played by arduino) visually on screen
+		*add a pause button in c# to stop the replay, and start a new song
+			*(when new song starts delete all information recorded by altera and arduino)
+
+*teach how to play
+	*user gives an unknown mp3 file
+	*using cloud we recognize the real name of the song
+	*import the song from selection of xml files kept in folder
+	*arduino writes using mechanical arm the number of the song
+	*display the music notes
+	*shows you in c# which note to press in piano
+	*play via arduino the note pressed (one after the other)
+	*can play the whole song by pressing the "play full song" button
+
+
+
+
+communication protocol:
+*selfplayed song is 160 notes maximum. no minimum.
+*veraity of notes: 8 notes (do to do) no sharps.
+*implement for altera-arduino communication: data lines for note, enable recieve line, delay between sent notes
+*implement communication line between pc and arduino for: "finish writing", "end replay"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+misc:
+
+/*
+acrcloud imfo:
+	music
+	project
+	atlasyonatan@gmail.com
+	pass: musicxmusic333
+
+
+
+acrmusicproject info:
+
+	host:
+	identify-eu-west-1.acrcloud.com	
+
+	Access Key:
+	8fe6d38a0f3221465452051ff9d00af2
+
+	Access Secret:
+	8gG1JEfrPUUgluY5RBrYi5dBdzVbIBkelIBFrdQj
+*/

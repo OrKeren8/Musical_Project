@@ -1,0 +1,9 @@
+\\mac\home\documents\visual studio 2010\Projects\ACRCloudRecognitionTest\ACRCloudRecognitionTest\bin\Release\ACRCloudRecognitionTest.exe
+\\mac\home\documents\visual studio 2010\Projects\ACRCloudRecognitionTest\ACRCloudRecognitionTest\bin\Release\ACRCloudRecognitionTest.pdb
+\\mac\home\documents\visual studio 2010\Projects\ACRCloudRecognitionTest\ACRCloudRecognitionTest\obj\x86\Release\ACRCloudRecognitionTest.exe
+\\mac\home\documents\visual studio 2010\Projects\ACRCloudRecognitionTest\ACRCloudRecognitionTest\obj\x86\Release\ACRCloudRecognitionTest.pdb
+C:\Users\elect\Desktop\acrcloud_sdk_csharp-master\acrcloud_sdk_csharp-master\ACRCloudRecognitionTest\ACRCloudRecognitionTest\obj\x86\Release\ACRCloudRecognitionTest.exe
+C:\Users\elect\Desktop\acrcloud_sdk_csharp-master\acrcloud_sdk_csharp-master\ACRCloudRecognitionTest\ACRCloudRecognitionTest\obj\x86\Release\ACRCloudRecognitionTest.pdb
+C:\Users\elect\Desktop\acrcloud_sdk_csharp-master\acrcloud_sdk_csharp-master\ACRCloudRecognitionTest\ACRCloudRecognitionTest\bin\Release\ACRCloudRecognitionTest.exe
+C:\Users\elect\Desktop\acrcloud_sdk_csharp-master\acrcloud_sdk_csharp-master\ACRCloudRecognitionTest\ACRCloudRecognitionTest\bin\Release\ACRCloudRecognitionTest.pdb
+C:\Users\elect\Desktop\acrcloud_sdk_csharp-master\acrcloud_sdk_csharp-master\ACRCloudRecognitionTest\ACRCloudRecognitionTest\obj\x86\Release\ACRCloudRecognitionTest.csprojResolveAssemblyReference.cache
